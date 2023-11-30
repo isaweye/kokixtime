@@ -12,11 +12,11 @@
       padding: 50px;
     }
     h1 {
-      font-size: 32px;
+      font-size: 48px;
       color: #333;
     }
     p {
-      font-size: 24px;
+      font-size: 36px;
       color: #666;
     }
   </style>
@@ -29,12 +29,13 @@
     function updateTime() {
       let currentTime = new Date();
 
-      let offset = 3;
-      currentTime.setHours(currentTime.getHours() + offset);
+      let offset = 5;
+      let utc = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);
+      let newTime = new Date(utc + (3600000 * offset));
 
-      let hours = currentTime.getHours().toString().padStart(2, '0');
-      let minutes = currentTime.getMinutes().toString().padStart(2, '0');
-      let seconds = currentTime.getSeconds().toString().padStart(2, '0');
+      let hours = newTime.getUTCHours().toString().padStart(2, '0');
+      let minutes = newTime.getUTCMinutes().toString().padStart(2, '0');
+      let seconds = newTime.getUTCSeconds().toString().padStart(2, '0');
 
       document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
     }
