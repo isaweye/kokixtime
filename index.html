@@ -26,18 +26,19 @@
   <p id="time"></p>
 
   <script>
+    
     function updateTime() {
-      let currentTime = new Date();
-
-      let offset = 7;
-      let utc = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);
-      let newTime = new Date(utc + (3600000 * offset));
-
-      let hours = newTime.getUTCHours().toString().padStart(2, '0');
-      let minutes = newTime.getUTCMinutes().toString().padStart(2, '0');
-      let seconds = newTime.getUTCSeconds().toString().padStart(2, '0');
-
-      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+      fetch('https://worldtimeapi.org/api/timezone/Europe/Perm')
+        .then(response => response.json())
+        .then(data => {
+          let dateTime = new Date(data.utc_datetime);
+          let hours = dateTime.getUTCHours().toString().padStart(2, '0');
+          let minutes = dateTime.getUTCMinutes().toString().padStart(2, '0');
+          let seconds = dateTime.getUTCSeconds().toString().padStart(2, '0');
+          
+          document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+        })
+        .catch(error => console.error('Ошибка получения времени:', error));
     }
     setInterval(updateTime, 1000);
 
