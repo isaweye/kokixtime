@@ -29,7 +29,7 @@
     function updateTime() {
       let currentTime = new Date();
 
-      let offset = 5;
+      let offset = 7;
       let utc = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);
       let newTime = new Date(utc + (3600000 * offset));
 
