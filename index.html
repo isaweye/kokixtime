@@ -22,31 +22,24 @@
   </style>
 </head>
 <body>
-  <h1>Âðåìÿ Êîêèêñà</h1>
+  <h1>Время Кокикса</h1>
   <p id="time"></p>
 
   <script>
     function updateTime() {
-      // Ñîçäàåì îáúåêò äàòû äëÿ òåêóùåãî âðåìåíè
       let currentTime = new Date();
 
-      // Óñòàíàâëèâàåì ñìåùåíèå âðåìåíè äëÿ Ïåðìñêîãî êðàÿ (+5 ÷àñîâ îòíîñèòåëüíî UTC)
-      let offset = 5;
+      let offset = 3;
       currentTime.setHours(currentTime.getHours() + offset);
 
-      // Ôîðìàòèðóåì âðåìÿ â ñòðîêó äëÿ îòîáðàæåíèÿ
       let hours = currentTime.getHours().toString().padStart(2, '0');
       let minutes = currentTime.getMinutes().toString().padStart(2, '0');
       let seconds = currentTime.getSeconds().toString().padStart(2, '0');
 
-      // Îòîáðàæàåì âðåìÿ íà ñòðàíèöå
       document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
     }
-
-    // Âûçûâàåì ôóíêöèþ updateTime êàæäóþ ñåêóíäó äëÿ îáíîâëåíèÿ âðåìåíè
     setInterval(updateTime, 1000);
 
-    // Ïåðâè÷íûé âûçîâ äëÿ îòîáðàæåíèÿ âðåìåíè ïðè çàãðóçêå ñòðàíèöû
     updateTime();
   </script>
 </body>
