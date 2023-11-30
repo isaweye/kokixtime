@@ -31,10 +31,10 @@
       fetch('https://worldtimeapi.org/api/timezone/Asia/Yekaterinburg')
         .then(response => response.json())
         .then(data => {
-          let dateTime = new Date(data.utc_datetime);
-          let hours = dateTime.getUTCHours().toString().padStart(2, '0');
-          let minutes = dateTime.getUTCMinutes().toString().padStart(2, '0');
-          let seconds = dateTime.getUTCSeconds().toString().padStart(2, '0');
+          let dateTime = new Date(data.datetime);
+          let hours = dateTime.getHours().toString().padStart(2, '0');
+          let minutes = dateTime.getMinutes().toString().padStart(2, '0');
+          let seconds = dateTime.getSeconds().toString().padStart(2, '0');
           
           document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
         })
