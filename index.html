@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Время у Кокикса</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 32px;
+      color: #333;
+    }
+    p {
+      font-size: 24px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Время Кокикса</h1>
+  <p id="time"></p>
+
+  <script>
+    function updateTime() {
+      // Создаем объект даты для текущего времени
+      let currentTime = new Date();
+
+      // Устанавливаем смещение времени для Пермского края (+5 часов относительно UTC)
+      let offset = 5;
+      currentTime.setHours(currentTime.getHours() + offset);
+
+      // Форматируем время в строку для отображения
+      let hours = currentTime.getHours().toString().padStart(2, '0');
+      let minutes = currentTime.getMinutes().toString().padStart(2, '0');
+      let seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+      // Отображаем время на странице
+      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Вызываем функцию updateTime каждую секунду для обновления времени
+    setInterval(updateTime, 1000);
+
+    // Первичный вызов для отображения времени при загрузке страницы
+    updateTime();
+  </script>
+</body>
+</html>
