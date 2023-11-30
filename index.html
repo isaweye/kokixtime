@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Время у Кокикса</title>
+  <title>Р’СЂРµРјСЏ РљРѕРєРёРєСЃР°</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,31 +22,31 @@
   </style>
 </head>
 <body>
-  <h1>Время Кокикса</h1>
+  <h1>Г‚Г°ГҐГ¬Гї ГЉГ®ГЄГЁГЄГ±Г </h1>
   <p id="time"></p>
 
   <script>
     function updateTime() {
-      // Создаем объект даты для текущего времени
+      // Г‘Г®Г§Г¤Г ГҐГ¬ Г®ГЎГєГҐГЄГІ Г¤Г ГІГ» Г¤Г«Гї ГІГҐГЄГіГ№ГҐГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ
       let currentTime = new Date();
 
-      // Устанавливаем смещение времени для Пермского края (+5 часов относительно UTC)
+      // Г“Г±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ Г±Г¬ГҐГ№ГҐГ­ГЁГҐ ГўГ°ГҐГ¬ГҐГ­ГЁ Г¤Г«Гї ГЏГҐГ°Г¬Г±ГЄГ®ГЈГ® ГЄГ°Г Гї (+5 Г·Г Г±Г®Гў Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® UTC)
       let offset = 5;
       currentTime.setHours(currentTime.getHours() + offset);
 
-      // Форматируем время в строку для отображения
+      // Г”Г®Г°Г¬Г ГІГЁГ°ГіГҐГ¬ ГўГ°ГҐГ¬Гї Гў Г±ГІГ°Г®ГЄГі Г¤Г«Гї Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГї
       let hours = currentTime.getHours().toString().padStart(2, '0');
       let minutes = currentTime.getMinutes().toString().padStart(2, '0');
       let seconds = currentTime.getSeconds().toString().padStart(2, '0');
 
-      // Отображаем время на странице
+      // ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГўГ°ГҐГ¬Гї Г­Г  Г±ГІГ°Г Г­ГЁГ¶ГҐ
       document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
     }
 
-    // Вызываем функцию updateTime каждую секунду для обновления времени
+    // Г‚Г»Г§Г»ГўГ ГҐГ¬ ГґГіГ­ГЄГ¶ГЁГѕ updateTime ГЄГ Г¦Г¤ГіГѕ Г±ГҐГЄГіГ­Г¤Гі Г¤Г«Гї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї ГўГ°ГҐГ¬ГҐГ­ГЁ
     setInterval(updateTime, 1000);
 
-    // Первичный вызов для отображения времени при загрузке страницы
+    // ГЏГҐГ°ГўГЁГ·Г­Г»Г© ГўГ»Г§Г®Гў Г¤Г«Гї Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГї ГўГ°ГҐГ¬ГҐГ­ГЁ ГЇГ°ГЁ Г§Г ГЈГ°ГіГ§ГЄГҐ Г±ГІГ°Г Г­ГЁГ¶Г»
     updateTime();
   </script>
 </body>
